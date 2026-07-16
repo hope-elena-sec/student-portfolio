@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | My Academic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Left: Centralized Portfolio Title (Updated to your requested name) -->
+            <h1 class="logo">My Portfolio</h1>
+            
+            <!-- Desktop Layout: Navigation Menu inside the header -->
+            <nav class="main-nav">
+                <ul class="nav-links" id="navMenu">  
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul> 
+            </nav>
+
+            <!-- Right: Eclipse/Trigger Button (Three Vertical Dots ⋮) -->
+            <button class="eclipse-btn" id="eclipseBtn">&#8942;</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about-grid">
+            <div class="card">
+                <h2>Educational Background</h2>
+                <table class="edu-table">
+                    <thead>
+                        <tr>
+                            <th>Institution</th>
+                            <th>Degree/Program</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MIVA Open University</td>
+                            <td>Bsc. Cybersecurity</td>
+                            <td>2026 - Present</td>
+                        </tr>
+                        <tr>
+                            <td>Ikeja Senior High School</td>
+                            <td>O'Level</td>
+                            <td>2009 - 2012</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Technical Skills</h2>
+                <ul class="skills">
+                    <li>Html5 & Semantics Structure</li>
+                    <li>JavaScript (DOM Manipulation)</li>
+                    <li>Security principles</li>
+                    <li>Risk awareness and management</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Hobbies and Interests</h2>
+                <ul class="hobbies-list">
+                    <li>Reading Tech blogs</li>
+                    <li>Strategic gaming</li>
+                    <li>Coding open-source widgets</li>
+                    <li>Exploring Music</li>
+                </ul>
+
+                <div class="multimedia-box">
+                    <h3>Focus Audio for Studying</h3>
+                    <audio controls>
+                        <source src="study-music.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy; Oyadiran Hope. 2026 MIVA Open University Lab(cos 106). All Rights Reserved.</p>
+    </footer>
+    <!-- Link to Javascript added so the sidebar works on this page -->
+    <script src="script.js"></script>
+</body>
+</html>

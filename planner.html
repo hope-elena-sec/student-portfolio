@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner | My Academic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Left: Centralized Portfolio Title (Updated to your requested name) -->
+            <h1 class="logo">My Portfolio</h1>
+            
+            <!-- Desktop Layout: Navigation Menu inside the header -->
+            <nav class="main-nav">
+                <ul class="nav-links" id="navMenu">  
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html" class="active">Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul> 
+            </nav>
+
+            <!-- Right: Eclipse/Trigger Button (Three Vertical Dots ⋮) -->
+            <button class="eclipse-btn" id="eclipseBtn">&#8942;</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="planner-box">
+            <h2>Interactive Academic Planner</h2>
+            <p>Keep track of assignments, deadlines, and studies. Add tasks dynamically below.</p>
+            
+            <div class="planner-input-group">
+                <input type="text" id="taskInput" placeholder="Enter a new academic task...">
+                <button id="addTaskBtn" class="btn">Add Task</button>
+            </div>
+
+            <ul id="taskList" class="task-list">
+                <!-- Dynamic Tasks added by JavaScript will populate here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy; Oyadiran Hope. 2026 MIVA Open University Lab(cos 106). All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

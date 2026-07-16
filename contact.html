@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | My Academic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Left: Centralized Portfolio Title (Updated to your requested name) -->
+            <h1 class="logo">My Portfolio</h1>
+            
+            <!-- Desktop Layout: Navigation Menu inside the header -->
+            <nav class="main-nav">
+                <ul class="nav-links" id="navMenu">  
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Planner</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul> 
+            </nav>
+
+            <!-- Right: Eclipse/Trigger Button (Three Vertical Dots ⋮) -->
+            <button class="eclipse-btn" id="eclipseBtn">&#8942;</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-box">
+            <h2>Contact Me</h2>
+            <p>Fill out the form below to reach out to me regarding collaborations or academic projects.</p>
+            
+            <div id="formFeedback" class="feedback-msg"></div>
+
+            <form id="contactForm" novalidate>
+                <div class="form-control">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Your name">
+                </div>
+                
+                <div class="form-control">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com">
+                </div>
+
+                <div class="form-control">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Digits only (e.g., 08012345678)">
+                </div>
+
+                <div class="form-control">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-block">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy; Oyadiran Hope. 2026 MIVA Open University Lab(cos 106). All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
