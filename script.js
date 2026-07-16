@@ -9,14 +9,14 @@ const navMenu = document.getElementById('navMenu');
 if (eclipseBtn && navMenu) {
     // Toggle the mobile navigation dropdown when clicking the ⋮ button
     eclipseBtn.addEventListener('click', (event) => {
-        navMenu.classList.toggle('show');
+        navMenu.classList.toggle('active');
         event.stopPropagation(); // Prevents the event from instantly triggering the document click handler
     });
 
     // Close the dropdown cleanly if the user clicks anywhere else on the page
     document.addEventListener('click', (event) => {
         if (!navMenu.contains(event.target) && !eclipseBtn.contains(event.target)) {
-            navMenu.classList.remove('show');
+            navMenu.classList.remove('active');
         }
     });
 }
