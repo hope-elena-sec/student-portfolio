@@ -9,14 +9,14 @@ const navMenu = document.getElementById('navMenu');
 if (eclipseBtn && navMenu) {
     // Toggle the mobile navigation dropdown when clicking the ⋮ button
     eclipseBtn.addEventListener('click', (event) => {
-        navMenu.classList.toggle('active');
+        navMenu.classList.toggle('show');
         event.stopPropagation(); // Prevents the event from instantly triggering the document click handler
     });
 
     // Close the dropdown cleanly if the user clicks anywhere else on the page
     document.addEventListener('click', (event) => {
         if (!navMenu.contains(event.target) && !eclipseBtn.contains(event.target)) {
-            navMenu.classList.remove('active');
+            navMenu.classList.remove('show');
         }
     });
 }
@@ -129,4 +129,4 @@ if (contactForm && formFeedback) {
         formFeedback.innerText = msg;
         formFeedback.classList.add(cssClass);
     };
-}
+});
