@@ -3,70 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | My Academic Portfolio</title>
+    <title>Projects | Hope Oyadiran Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <!-- Left: Centralized Portfolio Title -->
-            <h1 class="logo">My Portfolio</h1>
-            
-            <!-- Desktop Layout: Navigation Menu inside the header -->
-            <nav class="main-nav">
-                <ul class="nav-links" id="navMenu">  
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="planner.html">Planner</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul> 
+
+    <div class="site-container">
+        <header class="sticky-header">
+            <div class="logo-area">
+                <div class="logo-placeholder">H</div>
+                <h1 class="logo">My Portfolio</h1>
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Me</a></li>
+                    <li><a href="projects.html" class="nav-item active">Projects</a></li>
+                    <li><a href="planner.html" class="nav-item">Academic Planner</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
             </nav>
+        </header>
 
-            <!-- Right: Eclipse/Trigger Button (Three Vertical Dots ⋮) -->
-            <button class="eclipse-btn" id="eclipseBtn">&#8942;</button>
-        </div>
-    </header>
+        <main class="page-section">
+            <h2 class="text-center">Sample Projects</h2>
+            <div class="projects-grid expanded-grid">
+                <div class="project-card">
+                    <img src="html-project1.png" alt="Personal Resume Page Screenshot" class="project-img">
+                    <div class="project-info">
+                        <h3>Personal Resume Website</h3>
+                        <p>A simple, neat, structured webpage showcasing my static resume using early structural semantic HTML elements and clean inline styling concepts.</p>
+                        <a href="https://github.com/hope-elena-sec/student-portfolio.git" target="_blank" class="project-link">View Repository &rarr;</a>
+                    </div>
+                </div>
 
-    <main class="container">
-        <h2 class="page-title">My Projects</h2>
-        <section class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="html-project1.png" alt="Personal Resume Page Screenshot" class="project-img">
-                <div class="project-info">
-                    <h3>Personal Resume Website</h3>
-                    <p>A simple, neat, structured webpage showcasing my static resume using early structural semantic HTML elements and clean inline styling concepts.</p>
-                    <a href="https://github.com/hope-elena-sec/student-portfolio.git" target="_blank" class="project-link">View Repository &rarr;</a>
+                <div class="project-card">
+                    <img src="project2-thmb.jpg" alt="Interactive Quiz Game Screenshot" class="project-img">
+                    <div class="project-info">
+                        <h3>Interactive Quiz Application</h3>
+                        <p>A web-based quiz game that challenges players on fundamental IT concepts. Developed using complex CSS structural rules and state mutations in JavaScript.</p>
+                        <a href="#" class="project-link">Live Demo (Simulated) &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project3-thmb.jpg" alt="Product Landing Page Screenshot" class="project-img">
+                    <div class="project-info">
+                        <h3>Product Landing Page</h3>
+                        <p>An eye-catching, high-converting simulated tech product deployment page configured strictly using responsive modern layout mechanics like CSS Flexbox.</p>
+                        <a href="#" class="project-link">Live Demo (Simulated) &rarr;</a>
+                    </div>
                 </div>
             </div>
+        </main>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="project2-thmb.jpg" alt="Interactive Quiz Game Screenshot" class="project-img">
-                <div class="project-info">
-                    <h3>Interactive Quiz Application</h3>
-                    <p>A web-based quiz game that challenges players on fundamental IT concepts. Developed using complex CSS structural rules and state mutations in JavaScript.</p>
-                    <a href="#" class="project-link">Live Demo (Simulated) &rarr;</a>
-                </div>
-            </div>
+        <footer>
+            <p>&copy; 2026 Oyadiran Hope | MIVA Open University (COS 106). All Rights Reserved.</p>
+        </footer>
+    </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="project3-thmb.jpg" alt="Product Landing Page Screenshot" class="project-img">
-                <div class="project-info">
-                    <h3>Product Landing Page</h3>
-                    <p>An eye-catching, high-converting simulated tech product deployment page configured strictly using responsive modern layout mechanics like CSS Flexbox.</p>
-                    <a href="#" class="project-link">Live Demo (Simulated) &rarr;</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-      <p>&copy; Oyadiran Hope. 2026 MIVA Open University Lab(cos 106). All Rights Reserved.</p>
-    </footer>
-    
     <script src="script.js"></script>
 </body>
 </html>

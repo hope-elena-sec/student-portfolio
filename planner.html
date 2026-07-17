@@ -3,50 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Planner | My Academic Portfolio</title>
+    <title>Planner | Hope Oyadiran Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <!-- Left: Centralized Portfolio Title (Updated to your requested name) -->
-            <h1 class="logo">My Portfolio</h1>
-            
-            <!-- Desktop Layout: Navigation Menu inside the header -->
-            <nav class="main-nav">
-                <ul class="nav-links" id="navMenu">  
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="planner.html" class="active">Planner</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul> 
-            </nav>
 
-            <!-- Right: Eclipse/Trigger Button (Three Vertical Dots ⋮) -->
-            <button class="eclipse-btn" id="eclipseBtn">&#8942;</button>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="planner-box">
-            <h2>Interactive Academic Planner</h2>
-            <p>Keep track of assignments, deadlines, and studies. Add tasks dynamically below.</p>
-            
-            <div class="planner-input-group">
-                <input type="text" id="taskInput" placeholder="Enter a new academic task...">
-                <button id="addTaskBtn" class="btn">Add Task</button>
+    <div class="site-container">
+        <header class="sticky-header">
+            <div class="logo-area">
+                <div class="logo-placeholder">H</div>
+                <h1 class="logo">My Portfolio</h1>
             </div>
+            <nav>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="about.html" class="nav-item">About Me</a></li>
+                    <li><a href="projects.html" class="nav-item">Projects</a></li>
+                    <li><a href="planner.html" class="nav-item active">Academic Planner</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <ul id="taskList" class="task-list">
-                <!-- Dynamic Tasks added by JavaScript will populate here -->
-            </ul>
-        </section>
-    </main>
+        <main class="page-section">
+            <h2 class="text-center">Academic Planner</h2>
+            <p class="text-center" style="color: var(--text-muted); margin-bottom: 20px;">Manage system defense tasks, class deliverables, and labs efficiently.</p>
+            
+            <div class="planner-box">
+                <form id="todo-form" class="todo-input-row">
+                    <input type="text" id="todo-input" placeholder="Add an assignment or study task..." required>
+                    <button type="submit" class="btn-primary">Add Task</button>
+                </form>
+                
+                <table class="planner-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Cybersecurity/Academic Task</th>
+                            <th style="text-align: right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-list">
+                        <!-- Tasks dynamically handled by script.js -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
 
-    <footer>
-      <p>&copy; Oyadiran Hope. 2026 MIVA Open University Lab(cos 106). All Rights Reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2026 Oyadiran Hope | MIVA Open University (COS 106). All Rights Reserved.</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>

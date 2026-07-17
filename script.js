@@ -1,132 +1,118 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     
-  // ==========================================
-// 1. RESPONSIVE NAVIGATION MENU CONTROL
-// ==========================================
-const eclipseBtn = document.getElementById('eclipseBtn');
-const navMenu = document.getElementById('navMenu');
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navLinks = document.getElementById("nav-links");
 
-if (eclipseBtn && navMenu) {
-    // Toggle the mobile navigation dropdown when clicking the ⋮ button
-    eclipseBtn.addEventListener('click', (event) => {
-        navMenu.classList.toggle('show');
-        event.stopPropagation(); // Prevents the event from instantly triggering the document click handler
-    });
-
-    // Close the dropdown cleanly if the user clicks anywhere else on the page
-    document.addEventListener('click', (event) => {
-        if (!navMenu.contains(event.target) && !eclipseBtn.contains(event.target)) {
-            navMenu.classList.remove('show');
-        }
-    });
-}
-
-// ==========================================
-// 2. INTERACTIVE ACADEMIC PLANNER CODE
-// ==========================================
-const taskInput = document.getElementById('taskInput');
-const addTaskBtn = document.getElementById('addTaskBtn');
-const taskList = document.getElementById('taskList');
-
-// Safe initialization context wrapper for matching active pages
-if (addTaskBtn && taskInput && taskList) {
-    // Core tracking Array for Tasks objects
-    let academicTasks = [];
-
-    // Core Render Function using DOM manipulation
-    const renderTasks = () => {
-        taskList.innerHTML = '';
-        
-        academicTasks.forEach((task, index) => {
-            const li = document.createElement('li');
-            li.className = `task-item ${task.completed ? 'completed' : ''}`;
-            
-            li.innerHTML = `
-                <span>${task.text}</span>
-                <div class="task-actions">
-                    <button class="done-btn" onclick="toggleTask(${index})">${task.completed ? 'Undo' : 'Done'}</button>
-                    <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
-                </div>
-            `;
-            taskList.appendChild(li);
+    if (hamburgerBtn && navLinks) {
+        hamburgerBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.toggle("active");
+            hamburgerBtn.classList.toggle("open");
+            hamburgerBtn.setAttribute("aria-expanded", isOpen);
         });
-    };
 
-    // Add Task functionality execution
-    const addTask = () => {
-        const taskText = taskInput.value.trim();
-        if (taskText === "") {
-            alert("Please enter a valid task description!");
-            return;
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                navLinks.classList.remove("active");
+                hamburgerBtn.classList.remove("open");
+                hamburgerBtn.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    const todoForm = document.getElementById("todo-form");
+    if (todoForm) {
+        let tasks = [
+            { id: 1, text: "Review Basic Network Defenses Lab", completed: false },
+            { id: 2, text: "Configure COS 106 HTML Structuring Panels", completed: true }
+        ];
+
+        const todoInput = document.getElementById("todo-input");
+        const todoList = document.getElementById("todo-list");
+
+        function renderTasks() {
+            todoList.innerHTML = "";
+            if (tasks.length === 0) {
+                todoList.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#7f8c8d;">No academic tasks entry found.</td></tr>`;
+                return;
+            }
+
+            tasks.forEach(task => {
+                const tr = document.createElement("tr");
+                tr.className = `task-item ${task.completed ? 'completed' : ''}`;
+                tr.innerHTML = `
+                    <td><input type="checkbox" ${task.completed ? 'checked' : ''} data-id="${task.id}" class="toggle-status"></td>
+                    <td>${task.text}</td>
+                    <td style="text-align: right;"><button class="btn-delete" data-id="${task.id}">Delete</button></td>
+                `;
+                todoList.appendChild(tr);
+            });
         }
-        
-        academicTasks.push({ text: taskText, completed: false });
-        taskInput.value = '';
+
+        todoForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const text = todoInput.value.trim();
+            if (!text) return;
+            tasks.push({ id: Date.now(), text: text, completed: false });
+            todoInput.value = "";
+            renderTasks();
+        });
+
+        todoList.addEventListener("click", (e) => {
+            const id = parseInt(e.target.dataset.id);
+            if (!id) return;
+            if (e.target.classList.contains("toggle-status")) {
+                tasks = tasks.map(t => t.id === id ? { ...t, completed: e.target.checked } : t);
+                renderTasks();
+            } else if (e.target.classList.contains("btn-delete")) {
+                tasks = tasks.filter(t => t.id !== id);
+                renderTasks();
+            }
+        });
+
         renderTasks();
-    };
+    }
 
-    // Event Handling
-    addTaskBtn.addEventListener('click', addTask);
-    taskInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addTask();
-    });
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+        const errorMsg = document.getElementById("form-error-msg");
+        const successMsg = document.getElementById("form-success-msg");
 
-    // Exposing specific action handlers globally for modern scope visibility inside the dynamically drawn DOM string layout
-    window.toggleTask = (index) => {
-        academicTasks[index].completed = !academicTasks[index].completed;
-        renderTasks();
-    };
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const fullName = document.getElementById("fullName").value.trim();
+            const emailAddress = document.getElementById("emailAddress").value.trim();
+            const phoneNumber = document.getElementById("phoneNumber").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-    window.deleteTask = (index) => {
-        academicTasks.splice(index, 1);
-        renderTasks();
-    };
-}
+            errorMsg.classList.add("hidden");
+            successMsg.classList.add("hidden");
 
-// ==========================================
-// 3. CONTACT FORM JAVASCRIPT VALIDATION
-// ==========================================
-const contactForm = document.getElementById('contactForm');
-const formFeedback = document.getElementById('formFeedback');
+            if (!fullName || !emailAddress || !phoneNumber || !message) {
+                showError("Submission Error: All details must be provided.");
+                return;
+            }
 
-if (contactForm && formFeedback) {
-    contactForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Halt transmission baseline logic
-        
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const message = document.getElementById('message').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailAddress)) {
+                showError("Submission Error: Provide a structured format email identifier.");
+                return;
+            }
 
-        formFeedback.className = "feedback-msg";
-        formFeedback.style.display = "none";
+            const phoneRegex = /^[0-9]+$/;
+            if (!phoneRegex.test(phoneNumber)) {
+                showError("Submission Error: The phone configuration line can only carry numeric digits.");
+                return;
+            }
 
-        if (!fullName || !email || !phone || !message) {
-            showFeedback("Error: All form fields must be accurately completed.", "error-mode");
-            return;
+            successMsg.classList.remove("hidden");
+            contactForm.reset();
+        });
+
+        function showError(text) {
+            errorMsg.innerText = text;
+            errorMsg.classList.remove("hidden");
         }
-
-        // Requirement check 2: Email structural validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showFeedback("Error: Please provide a valid email format.", "error-mode");
-            return;
-        }
-
-        // Requirement check 3: Phone constraints validation (digits only)
-        const digitsRegex = /^\d+$/;
-        if (!digitsRegex.test(phone)) {
-            showFeedback("Error: Phone structure requires numbers/digits only.", "error-mode");
-            return;
-        }
-
-        // Passed all constraints validation successfully
-        showFeedback("Success! Your form has been validated and submitted seamlessly.", "success-mode");
-        contactForm.reset();
-    });
-
-    const showFeedback = (msg, cssClass) => {
-        formFeedback.innerText = msg;
-        formFeedback.classList.add(cssClass);
-    };
+    }
 });
